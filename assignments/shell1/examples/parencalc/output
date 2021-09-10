@@ -1,0 +1,16 @@
+Read a line:
+  The question is:  (1+2)
+  In RPN form:      1  2 +
+  The answer is 3
+Read a line:
+  The question is:  (1+(2*3))
+  In RPN form:      1  2  3 *+
+  The answer is 7
+Read a line:
+  The question is:  ((1+2)*3)
+  In RPN form:      1  2 + 3 *
+  The answer is 9
+Read a line:
+  The question is:  ((3*10)/(2*3))
+  In RPN form:      3  10 * 2  3 */
+  The answer is 5
