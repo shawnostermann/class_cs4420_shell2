@@ -1,0 +1,27 @@
+echo "Mon Oct  4 15:08:21 EDT 2021"
+
+
+echo "OK, let's make a really long string"
+
+V1="x"
+V2="($V1*$V1)"
+V1="(${V2}+${V2}+${V2})"
+V2="($V1*$V1)"
+V1="(${V2}+${V2}+${V2})"
+V2="($V1*$V1)"
+V1="(${V2}+${V2}+${V2})"
+V2="($V1*$V1)"
+V1="(${V2}+${V2}+${V2})"
+V2="($V1*$V1)"
+V1="(${V2}+${V2}+${V2})"
+V2="($V1*$V1)"
+
+echo "the next line should say '     1       1   55986'"
+echo $V2 | wc 
+echo "the next line should say '  3501    3499   15942'"
+echo $V2 | od -c | sed 's/[^(]//g' | wc 
+echo "the next line should say '  3501    3500   15942'"
+echo $V2 | od -c | sed 's/[^)]//g' | wc 
+echo "the next line should say '  3501    3498   19053'"
+echo $V2 | od -c | sed 's/[^x]//g' | wc
+

@@ -1,0 +1,64 @@
+echo "Mon Oct  4 15:08:21 EDT 2021"
+
+echo "this tests loops and variables to do simple math"
+V0=""
+V1="x"
+V2="xx"
+V3="xxx"
+V4="xxxx"
+V5="xxxxx"
+V6="xxxxxx"
+V7="xxxxxxx"
+V8="xxxxxxxx"
+V9="xxxxxxxxx"
+
+
+
+echo
+echo "addition table"
+for TERM1 in $V0 $V1 $V2 $V3; do
+  for TERM2 in $V0 $V1 $V2 $V3; do
+	echo "'${TERM1}' + '${TERM2}' = '${TERM1}${TERM2}'"
+  done
+done
+
+echo
+echo "subtraction table"
+for TERM1 in "$V3" "$V4" "$V5"; do
+  for TERM2 in "$V0" "$V1" "$V2" "$V3"; do
+	echo "'${TERM1}' - '${TERM2}' = '${TERM1%${TERM2}}'"
+  done
+done
+
+echo
+echo "multiplication table (wow, this is a challenge!!)"
+for TERM1 in "$V1" "$V2" "$V4" "$V8"; do
+  for TERM2 in "$V0" "$V2" "$V4" "$V8"; do
+	/bin/echo -n "'${TERM1}' times '${TERM2}' = "
+	SUM=""
+	MULT=${TERM2}
+	while test -n "$MULT"; do
+		SUM="${SUM}${TERM1}"
+		MULT="${MULT#x}"
+	done
+	/bin/echo "'${SUM}'"
+	/bin/echo -n "${SUM}" | wc -c
+  done
+done
+
+
+echo
+echo "division table (wow, now THATs profound! :-) )"
+for NUMERATOR in "$V6" "$V7" "$V8" "$V9"; do
+  for DENOMINATOR in "$V1" "$V2" "$V3" "$V4" "$V7"; do
+	/bin/echo -n "'${NUMERATOR}' div '${DENOMINATOR}' = "
+	COUNT=""
+	REMAINDER=${NUMERATOR}
+	while test '!' "${REMAINDER}" '<' "$DENOMINATOR"; do
+		REMAINDER="${REMAINDER%${DENOMINATOR}}"
+		COUNT="x$COUNT"
+	done
+	/bin/echo -n "'${COUNT}'"
+	/bin/echo  " with remainder '${REMAINDER}'"
+  done
+done

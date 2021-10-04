@@ -1,0 +1,16 @@
+echo "variables and loop test - Mon Oct  4 15:08:21 EDT 2021"
+
+
+echo "Another Variable Test to test binding times"
+
+VALUE=1
+base="this string should ALWAYS contain a 1: '${VALUE}'"
+echo $base
+VALUE=2
+echo $base
+
+for VALUE in 1 2 3 4
+  do
+    echo "the next string should not change thru the loop '$base'"
+  done
+

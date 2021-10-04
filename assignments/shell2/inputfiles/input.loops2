@@ -1,0 +1,31 @@
+echo 'Mon Oct  4 15:08:21 EDT 2021'
+
+echo "Nested loops test, for full credit, this must work too "
+
+echo
+echo "Matrix test"
+/bin/echo -n "          "
+for COL in a b c d e f g; do
+     /bin/echo -n "   $COL  "
+done
+/bin/echo
+for ROW in 1 2 3; do
+  /bin/echo -n "  Row ${ROW}"
+  for COL in a b c d e f g; do
+     /bin/echo -n " -${ROW}${COL}-"
+  done
+  /bin/echo
+done
+
+echo
+echo
+echo "Now, some fun arithmetic, result should be 27 lines"
+for X in 2 4 8; do
+  for Y in 2 4 8; do
+    for Z in 2 4 8; do
+	/bin/echo -n "${X} times ${Y} times ${Z} is: "
+	expr ${X} '*' ${Y} '*' ${Z}
+    done
+  done
+done
+

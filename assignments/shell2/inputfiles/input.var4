@@ -1,0 +1,26 @@
+echo "Mon Oct  4 15:08:21 EDT 2021"
+
+echo "Variable prefix and suffix test"
+
+STR=xx123yy
+echo "STR is '${STR}'"
+
+echo "prefix test"
+echo '${STR#xx} ' "is '${STR#xx}'" '	(should be 123yy)'
+echo '${STR##xx}' "is '${STR##xx}'" '	(should be 123yy)'
+echo '${STR#x}  ' "is '${STR#x}'" '	(should be x123yy)'
+echo '${STR##x} ' "is '${STR##x}'" '	(should be x123yy)'
+echo '${STR#yy} ' "is '${STR#yy}'" '	(should be xx123yy)'
+echo '${STR##yy}' "is '${STR##yy}'" '	(should be xx123yy)'
+echo '${STR#z}  ' "is '${STR#z}'" '	(should be xx123yy)'
+echo '${STR##z} ' "is '${STR##z}'" '	(should be xx123yy)'
+
+echo "suffix test"
+echo '${STR%xx} ' "is '${STR%xx}'" '	(should be xx123yy)'
+echo '${STR%%xx}' "is '${STR%%xx}'" '	(should be xx123yy)'
+echo '${STR%yy} ' "is '${STR%yy}'" '	(should be xx123)'
+echo '${STR%%yy}' "is '${STR%%yy}'" '	(should be xx123)'
+echo '${STR%y}  ' "is '${STR%y}'" '	(should be xx123y)'
+echo '${STR%%y} ' "is '${STR%%y}'" '	(should be xx123y)'
+echo '${STR%z}  ' "is '${STR%z}'" '	(should be xx123yy)'
+echo '${STR%%z} ' "is '${STR%%z}'" '	(should be xx123yy)'

@@ -1,0 +1,143 @@
+echo "Input file version 1 - Mon Oct  4 15:08:21 EDT 2021"
+
+echo "==================== simple stuff test ===================="
+PROMPT="simple_stuff: "
+DEBUG=yes
+echo Welcome to my shell
+echo "Welcome     to     my     shell"
+/home/osterman/classbin/printargs  Welcome to my shell
+DEBUG=""
+pwd
+ls -l
+
+echo "==================== variable test ===================="
+PROMPT="variable_test: "
+printenv PROMPT
+ARGa="apple"
+echo
+ARGb="banana"
+echo
+ARGc="cherry"
+echo
+ARGd="doughnut"
+echo
+ARGe="eclaire"
+echo ${ARGa} ${ARGb} ${ARGc} ${ARGd} ${ARGe}
+echo ${ARGa} ${ARGb} ${ARGc} ${ARGx} ${ARGd} ${ARGe}
+/home/osterman/classbin/printargs ${ARGa} ${ARGb} ${ARGc} ${ARGd} ${ARGe}
+/home/osterman/classbin/printargs ${ARGa} ${ARGb} ${ARGc} ${ARGx} ${ARGd} ${ARGe}
+
+B=/usr/bin
+
+echo "The next experiment should run 'ls'"
+echo ${B}/ls
+/home/osterman/classbin/printargs ${B}/ls
+${B}/ls
+
+C=""
+
+echo ${C}
+/home/osterman/classbin/printargs ${C}
+
+D="one two three"
+
+echo ${D}
+/home/osterman/classbin/printargs ${D}
+
+LS="/bin/ls"
+${LS}
+
+echo "==================== path test ===================="
+PROMPT="path_test: "
+printenv PATH
+PATH="/bin:/usr/bin:/usr/ucb"
+printenv PATH
+echo "testing path"
+PATH="/badpath1:/badpath2:/badpath3"
+printenv PATH
+/usr/ucb/printenv PATH
+PATH="/bin:/usr/bin:/usr/ucb"
+
+
+echo "==================== path test2 ===================="
+PROMPT="path_test2: "
+rm -f myecho
+cp /bin/echo myecho
+myecho "myecho is not found here"
+./myecho "this time myecho should work"
+
+echo "==================== path test3 ===================="
+PROMPT="path_test3: "
+PATH="/usr/local:/bin:/usr/bin:/usr/ucb"
+man test > /dev/null
+
+echo "==================== redir test ===================="
+PROMPT="redir_test: "
+cat < /etc/motd
+cat < /etc/shadow
+cat < /etc/motd > motd
+wc motd
+/bin/ls -lastg motd
+echo "should not run 1" < /notfile
+echo "should not run 2" > /badfile
+echo "should not run 3" < file1 < file2
+/home/osterman/fdlist
+
+echo "==================== pipe test ===================="
+echo "if you don't implement pipes, then you need good messages saying so!"
+PROMPT="pipe_test: "
+DEBUG=1
+cat /etc/motd | wc
+DEBUG=""
+FDL=/home/osterman/fdlist
+${FDL}
+${FDL} < /etc/motd | ${FDL} | ${FDL} > fdlist.out
+cat /etc/motd | tr a-z A-Z | tr O -
+cat < /usr/dict/words | egrep "...................*" | tr a-z A-Z | grep ELECT
+
+noprogram1 | echo "shouldn't run this"
+echo "shouldn't run this either" | noprogram2
+cat /badfile1 | cat /badfile2 | cat /badfile3 2> /dev/null
+
+echo "==================== token test ===================="
+echo I wonder if I can use the word here?
+echo=I wonder if I can use the word here?
+
+echo="==================== stderr test ===================="
+cat /etc/nodename /nofile1
+cat /etc/nodename /nofile2 > OUT1
+cat /etc/nodename /nofile3 2> OUT2
+head OUT1 OUT2
+
+cat /etc/nodename /nofile4
+cat /etc/nodename /nofile5 | cat > /dev/null
+
+echo "==================== final environment test ===================="
+printenv PATH
+printenv PROMPT
+printenv
+
+
+echo "==================== variable ambiguity test ===================="
+PERHAPS1="I wonder what to do with this??"
+printenv PERHAPS1
+echo "value of PERHAPS1: ${PERHAPS1}"
+MAYBE_THIS_WORKS="I wonder what to do with this??"
+printenv MAYBE_THIS_WORKS
+echo "value of: ${MAYBE_THIS_WORKS}"
+666="This should probably fail"
+printenv 666
+echo "value of 666: ${666}"
+WORDS=I wonder if this should work
+printing WORDS
+echo "value of WORDS: ${WORDS}"
+
+echo "==================== limitcheck test ===================="
+echo "You MUST compile your shell so that the following command has too many arguments!"
+echo 201 args a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 a31 a32 a33 a34 a35 a36 a37 a38 a39 a40 a41 a42 a43 a44 a45 a46 a47 a48 a49 a50 a51 a52 a53 a54 a55 a56 a57 a58 a59 a60 a61 a62 a63 a64 a65 a66 a67 a68 a69 a70 a71 a72 a73 a74 a75 a76 a77 a78 a79 a80 a81 a82 a83 a84 a85 a86 a87 a88 a89 a90 a91 a92 a93 a94 a95 a96 a97 a98 a99 a100 a101 a102 a103 a104 a105 a106 a107 a108 a109 a110 a111 a112 a113 a114 a115 a116 a117 a118 a119 a120 a121 a122 a123 a124 a125 a126 a127 a128 a129 a130 a131 a132 a133 a134 a135 a136 a137 a138 a139 a140 a141 a142 a143 a144 a145 a146 a147 a148 a149 a150 a151 a152 a153 a154 a155 a156 a157 a158 a159 a160 a161 a162 a163 a164 a165 a166 a167 a168 a169 a170 a171 a172 a173 a174 a175 a176 a177 a178 a179 a180 a181 a182 a183 a184 a185 a186 a187 a188 a189 a190 a191 a192 a193 a194 a195 a196 a197 a198 a199 
+
+echo "You MUST compile your shell so that the following command has too many directories!"
+PATH="d1:d2:d3:d4:d5:d6:d7:d8:d9:d10:d11:d12:d13:d14:d15:d16:d17:d18:d19:d20:d21:d22:d23:d24:d25:d26:d27:d28:d29:d30:d31:d32:d33:d34:d35:d36:d37:d38:d39:d40:d41:d42:d43:d44:d45:d46:d47:d48:d49:d50:d51:d52:d53:d54:d55:d56:d57:d58:d59:d60:d61:d62:d63:d64:d65:d66:d67:d68:d69:d70:d71:d72:d73:d74:d75:d76:d77:d78:d79:d80:d81:d82:d83:d84:d85:d86:d87:d88:d89:d90:d91:d92:d93:d94:d95:d96:d97:d98:d99:d100:d101:d102:d103:d104:d105:d106:d107:d108:d109:d110:d111:d112:d113:d114:d115:d116:d117:d118:d119:d120:d121:d122:d123:d124:d125:d126:d127:d128:d129:d130:d131:d132:d133:d134:d135:d136:d137:d138:d139:d140:d141:d142:d143:d144:d145:d146:d147:d148:d149:d150:d151:d152:d153:d154:d155:d156:d157:d158:d159:d160:d161:d162:d163:d164:d165:d166:d167:d168:d169:d170:d171:d172:d173:d174:d175:d176:d177:d178:d179:d180:d181:d182:d183:d184:d185:d186:d187:d188:d189:d190:d191:d192:d193:d194:d195:d196:d197:d198:d199:d200"
+
+/bin/echo "See, that wasn't too hard!!!!!"
+/bin/echo bye

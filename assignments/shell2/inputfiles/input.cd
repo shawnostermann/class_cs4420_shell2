@@ -1,0 +1,40 @@
+echo "Mon Oct  4 15:08:21 EDT 2021"
+
+
+echo "Go to temp"
+/bin/pwd
+cd /tmp
+/bin/pwd
+
+echo "Go to the root"
+cd /
+/bin/pwd
+
+echo "Go to your HOME"
+cd
+/bin/pwd
+
+echo "Change HOME and go there"
+HOME=/tmp
+export HOME
+cd
+/bin/pwd
+
+echo "Home3"
+HOME=/var/tmp
+cd
+/bin/pwd
+
+cd /tmp
+echo "These are errors that you should catch"
+
+echo "Multiple args - should not go anywhere!! "
+cd dir1 dir2
+/bin/pwd
+
+echo "Unknown directory test - should NOT move anywhere!"
+cd /nodir
+/bin/pwd
+
+
+

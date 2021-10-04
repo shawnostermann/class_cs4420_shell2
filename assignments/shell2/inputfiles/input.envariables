@@ -1,0 +1,58 @@
+echo "environment variable test version - echo 'Mon Oct  4 15:08:21 EDT 2021"
+
+printenv PATH
+PATH=/bin:/usr/ucb:/usr/bin
+printenv PATH
+
+echo "The prompt is '$PROMPT'"
+printenv PROMPT
+
+echo "Debug is set to '$DEBUG'"
+printenv DEBUG
+
+echo "End of init test"
+
+
+MYVAR="this is the first value of MYVAR"
+printenv MYVAR
+export MYVAR
+printenv MYVAR
+MYVAR="the copy of MYVAR in the environment should now look like this too!"
+printenv MYVAR
+
+
+echo "environment variable test"
+echo "If you don't find a variable as a shell variable, then look it up in "
+echo "  the environment!!"
+echo $USER
+echo $SHELL
+SHELL=./bash
+echo "Since SHELL came from the environment, it should go back there"
+echo "I changed SHELL to '$SHELL'"
+printenv SHELL
+
+MYTEST="should NOT go into the environment, since it's not exported"
+printenv MYTEST
+printenv
+
+
+echo "LOGNAME is another standard variable.  Because it's already in the"
+echo "environment, changing it should install it as a shell variable, "
+echo "already exported, and then change the environment copy too"
+printenv LOGNAME
+LOGNAME=newname
+printenv LOGNAME
+echo $LOGNAME
+
+
+echo "You can call this an error if you with"
+export NOTAVARIABLE
+printenv NOTAVARIABLE
+NOTAVARIABLE=""
+printenv NOTAVARIABLE
+NOTAVARIABLE="Now it's set"
+printenv NOTAVARIABLE
+
+
+
+
