@@ -1,0 +1,24 @@
+# access trace from page 445 of the textbook
+# Belady's Anomoly - 4 frames
+# for FIFO
+# Pages mapped: 5
+# Page misses: 10
+# Frames taken: 6
+# Frames written to disk: 0
+# Frames recovered from disk: 0
+#
+4
+5
+debug
+r 0
+r 1
+r 2
+r 3
+r 0
+r 1
+r 4
+r 0
+r 1
+r 2
+r 3
+r 4

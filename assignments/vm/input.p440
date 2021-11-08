@@ -1,0 +1,24 @@
+# access trace from page 440 of the textbook
+# for FIFO, should result in:
+# Pages mapped: 5
+# Frames taken: 11
+# Frames written to disk: 0
+# Frames recovered from disk: 0
+# 
+4
+6
+r 0
+r 1
+r 2
+r 3
+r 4
+r 0
+r 1
+r 2
+r 3
+r 4
+r 0
+r 1
+r 2
+r 3
+r 4
