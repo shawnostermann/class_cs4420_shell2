@@ -13,6 +13,9 @@
 # Frames taken: 4
 # Frames written to disk: 0
 # Frames recovered from disk: 0
+#
+# Note that the table printout in the book is wrong on P442, in FIFO, there's a "+" missing under the "E" 4 from the end, it's
+# it's at frame 3 instead, which is wrong
 4
 5
 r 0
