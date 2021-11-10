@@ -1,0 +1,86 @@
+# for testing the optimal page replacement algorithm
+# Ostermann's output:
+# Pages referenced: 60
+# Pages mapped: 10
+# Page misses: 36
+# Frames taken: 31
+# Frames written to disk: 0
+# Frames recovered from disk: 0
+# file: input.mintest    algorithm: OPTIMAL
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Reference  A B C D E F G H I J A B C D E F G H I J A B C D E F G H I J A B C D E F G H I J A B C D E F G H I J A B C D E F G H I J
+# ----------------------------------------------------------------------------------------------------------------------------------
+#    0       A                   +                   +                   +                   + B C D E F                   +        
+#    1         B                   +                   +                   + C D E F G                   +                   +      
+#    2           C                   +                   + D E F G H                   +                   +                   +    
+#    3             D                   + E F G H I                   +                   +                   +                   +  
+#    4               E F G H I J                   +                   +                   +                   + A B C D E         J
+#   
+5
+12
+#
+r 0
+r 1
+r 2
+r 3
+r 4
+r 5
+r 6
+r 7
+r 8
+r 9
+# cycle again
+r 0
+r 1
+r 2
+r 3
+r 4
+r 5
+r 6
+r 7
+r 8
+r 9
+# cycle again
+r 0
+r 1
+r 2
+r 3
+r 4
+r 5
+r 6
+r 7
+r 8
+r 9
+# cycle again
+r 0
+r 1
+r 2
+r 3
+r 4
+r 5
+r 6
+r 7
+r 8
+r 9
+# cycle again
+r 0
+r 1
+r 2
+r 3
+r 4
+r 5
+r 6
+r 7
+r 8
+r 9
+# cycle again
+r 0
+r 1
+r 2
+r 3
+r 4
+r 5
+r 6
+r 7
+r 8
+r 9
