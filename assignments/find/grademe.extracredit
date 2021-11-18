@@ -1,0 +1,6 @@
+./find testdir/dir1/subdir1 -ls
+./find testdir -ls
+./find testdir -type d -ls
+./find testdir -type f -ls
+./find testdir -mtime +365 
+./find testdir -mtime -365

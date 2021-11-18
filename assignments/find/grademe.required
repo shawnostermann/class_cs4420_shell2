@@ -1,0 +1,11 @@
+./find testdir/dir1/subdir1
+./find testdir
+./find testdir -type d
+./find testdir -type f
+./find testdir -type f -size +100c
+./find testdir -name gf100
+./find testdir -type d -name subsubdir3
+./find testdir -type f -name subsubdir3
+./find /dev
+./find /dev  -type b
+
